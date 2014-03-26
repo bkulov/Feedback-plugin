@@ -46,5 +46,37 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    getSystemInfo: function() {
+        window.feedback.getSystemInfo(getSysInfoSuccess, getSysInfoError);
+        
+        function getSysInfoSuccess(systemInfo) {
+            console.log('System Info:');
+            console.log('model: ' + systemInfo.model);
+            console.log('appVersion: ' + systemInfo.appVersion);
+            console.log('cordova: ' + systemInfo.cordova);
+            console.log('appId: ' + systemInfo.appId);
+            console.log('OSVersion: ' + systemInfo.OSVersion);
+            console.log('widthInPixels: ' + systemInfo.widthInPixels);
+            console.log('heightInPixels: ' + systemInfo.heightInPixels);
+            console.log('uuid: ' + systemInfo.uuid);
+            console.log('userAgent: ' + systemInfo.userAgent);
+        };
+        
+        function getSysInfoError(error) {
+            console.log('Error: ' + error);
+        };
+    },
+    getScreenshot: function() {
+        window.feedback.getScreenshot(getScreenshotSuccess, getScreenshotError);
+        
+        function getScreenshotSuccess(screenshot) {
+            console.log('screenshot as base64 text: ' + screenshot);
+        };
+        
+        function getScreenshotError(error) {
+            console.log('Error: ' + error);
+        };
+
     }
 };

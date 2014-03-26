@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="com.telerik.feedback"
+    version="0.1">
+    <name>Feedback</name>
+    <description>Telerik Feedback Plugin</description>
+    <license>Commercial</license>
+    <keywords>cordova,device</keywords>
+    <js-module src="www/feedback.js" name="feedback">
+        <clobbers target="feedback" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="TLRKFeedback">
+                <param name="ios-package" value="TLRKFeedback"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/TLRKFeedback.h" />
+        <source-file src="src/ios/TLRKFeedback.m" />
+    </platform>
+</plugin>
